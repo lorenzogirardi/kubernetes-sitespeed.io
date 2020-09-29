@@ -50,6 +50,44 @@ First of all we have to test our websites on the customer position... so no 1gbi
 From the multitude of products , webtest , lighthouse , selenium and so on i really like sitespeed.io
 <br/><br/>
 
+## The customer point of view  
+
+You have to know your product and your customer ... 
+
+If you own the product you know that the customer is "forced" to buy by you.
+Immgine to are Apple, you know that customers are affiliated to you... so if something is slow, probably even if the device is available in other websites the customer will wait the answer.  
+
+On the opposite side if you are a retailer , and the product is quite common 
+with no brandlove etc etc ... if the website is slow (we have to define that is slow) the user will change immediatly the website to land to somewhere else.
+
+### Speed
+we usually define a *slowness* by a perception. 
+
+However , in 2020 you know the Data that comes from GA and understand when people leave a page , after some amount of time.
+
+Consider those rate and the timing to tune the threadshold 
+- Bounce 
+- Leave/Exit   
+
+and create the awareness about the limits and improvements you can achieve.
+
+Example. If a search take more than 10seconds, say *ciao ciao* to the customer
+
+However when you mesure the speed you have to move yourself in the customer side ... so not all people has 1gbit connection , maybe the major are using mobile , maybe your host is in US and the customer in KR.  
+So ... internet connection should reflect the avg/wrost scenario
+Believe me that those data https://www.speedtest.net/global-index are quite optimistic :) i appreciate instead the documentation of sitespeed that has classified 4 networks
+
+https://www.sitespeed.io/documentation/sitespeed.io/connectivity/
+
+- 3g
+- 3gfast
+- 3gslow
+- cable
+
+I'd like to say that in 2020 *cable* and *3gfast* cover perfectly the wrost scenario
+
+
+<br/><br/>
 ## Sitespeed&#46;io
 
 This tool is open source , has a huge extension , in this scenario  
@@ -68,31 +106,6 @@ is know easy understand that you can extend in crontab this code and add some ot
 
 ```/usr/bin/docker run --privileged --shm-size=1g --rm --network=cable sitespeedio/sitespeed.io httos://www.example.com -v -b chrome --video --speedIndex -c cable --browsertime.iterations 1 --s3.key S3_KEY --s3.secret S3_SECRET --s3.bucketname S3_BUCKET --s3.removeLocalResult true --s3.path S3_PATH www.ecample.com --graphite.host GRAPHITE_HOST --graphite.port GRAPHITE_PORT --graphite.namespace GRAPHITE_PREFIX```
 
-Where cable is the tuning of docker network 
-
-```
-#!/bin/bash
-echo 'Starting Docker networks'
-docker network create --driver bridge --subnet=192.168.33.0/24 --gateway=192.168.33.10 --opt "com.docker.network.bridge.name"="docker1" 3g
-tc qdisc add dev docker1 root handle 1: htb default 12
-tc class add dev docker1 parent 1:1 classid 1:12 htb rate 1.6mbit ceil 1.6mbit
-tc qdisc add dev docker1 parent 1:12 netem delay 150ms
-
-docker network create --driver bridge --subnet=192.168.34.0/24 --gateway=192.168.34.10 --opt "com.docker.network.bridge.name"="docker2" cable
-tc qdisc add dev docker2 root handle 1: htb default 12
-tc class add dev docker2 parent 1:1 classid 1:12 htb rate 5mbit ceil 5mbit
-tc qdisc add dev docker2 parent 1:12 netem delay 14ms
-
-docker network create --driver bridge --subnet=192.168.35.0/24 --gateway=192.168.35.10 --opt "com.docker.network.bridge.name"="docker3" 3gfast
-tc qdisc add dev docker3 root handle 1: htb default 12
-tc class add dev docker3 parent 1:1 classid 1:12 htb rate 1.6mbit ceil 1.6mbit
-tc qdisc add dev docker3 parent 1:12 netem delay 75ms
-
-docker network create --driver bridge --subnet=192.168.36.0/24 --gateway=192.168.36.10 --opt "com.docker.network.bridge.name"="docker4" 3gslow
-tc qdisc add dev docker4 root handle 1: htb default 12
-tc class add dev docker4 parent 1:1 classid 1:12 htb rate 0.4mbit ceil 0.4mbit
-tc qdisc add dev docker4 parent 1:12 netem delay 200ms
-```
 
 
 <br/><br/>
