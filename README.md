@@ -110,7 +110,46 @@ is know easy understand that you can extend in crontab this code and add some ot
 
 <br/><br/>
 
-Here we will use only metrics
+
+### Case of study  
+Since we have identified the tool i have to specify the use case  
+
+- I need only metrics in this example because, so i don't need to store the output artifact   
+- I want to store the metrics in influxdb  
+- I want to run it not as a docker but inside kubernetes  
+- TBD i'd like to orchestrate actions  
+
+The sitespeed&#46;io docker fit perfectly in a kubernetes cronjob vision  
+https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/  
+is done to start, execute an action and exit
+
+However i'd like to explore a workflow manager ... not just for this case but also to exend some other *jobs*   
+<br/><br/>
+
+#### Argo
+
+I chose this product because i was interested to have something similar to Rundeck , but with more extended capability in order to be possible build a ci/cd without spinnaker   
+https://argoproj.github.io/
+
+The installation is quite easy , i've just trick a configmap due to volume mount problem genereted by my small kubernetes installation  
+
+For a basic installation you need to create a dedicated namespace   
+```kubectl create namespace argo```  
+
+and than deploy the argo infrastructure (server and workflow)  
+```kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo/stable/manifests/install.yaml```   
+
+```
+NAMESPACE      NAME                                       READY   STATUS      RESTARTS   AGE
+argo           argo-server-6c886c5b77-l8jfv               1/1     Running     1          2d13h
+argo           workflow-controller-65948977d-zc9vt        1/1     Running     0          2d14h
+````
+
+As mentioned before i discover this bug , running a job ...   
+
+
+
+
 
 
 
