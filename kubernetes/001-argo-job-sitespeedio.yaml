@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: CronWorkflow
+metadata:
+  name: sitespeedio
+  namespace: sitespeedio
+spec:
+  schedule: "49 * * * *"
+  concurrencyPolicy: "Replace"
+  startingDeadlineSeconds: 0
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  podGC:
+    strategy: OnWorkflowCompletion
+  workflowSpec:
+    entrypoint: sitespeedio
+    templates:
+    - name: sitespeedio
+      container:
+        image: sitespeedio/sitespeed.io:15.2.0
+        command: ["bash", "-c", "/start.sh --video=false --plugins.remove screenshot --plugins.remove html https://www.k8s.it/ -b chrome --speedIndex --browsertime.iterations 1 --browsertime.connectivity.engine tsproxy -c 3gfast --influxdb.host=192.168.1.28 --influxdb.database=sitespeedio"]
+
