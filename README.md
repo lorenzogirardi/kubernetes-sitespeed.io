@@ -182,7 +182,7 @@ All informations are shared with the most relevant needs
 ![argo_3](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601559088/misc/argo_3.png "argo_3")   
 
 Events could be retrieved and evaluated as well  
-![argo_6](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_640/v1601559087/misc/argo_6.png "argo_6")   
+![argo_6](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_420/v1601559087/misc/argo_6.png "argo_6")   
 
 Last but not least .... logs are in the UI
 ![argo_5](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601559087/misc/argo_5.png "argo_5")   
