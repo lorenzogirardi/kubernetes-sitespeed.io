@@ -45,7 +45,7 @@ evaluate those during a long therm periode looking for performance
 - etc etc
 
 
-First of all we have to test our websites on the customer position... so no 1gbit inline connection with 0.00001 roungtrip :) 
+First of all we have to test our websites on the customer position... so no 1gbit inline connection with 0.00001 roundtrip :) 
 
 From the multitude of products , webtest , lighthouse , selenium and so on i really like sitespeed.io
 <br/><br/>
