@@ -34,8 +34,8 @@ There are also some others problems... when someone in your company or a custome
 
 
 
-And this is the reaction about a subjective evaluation  
-![reaction](https://res.cloudinary.com/ethzero/image/upload/v1601375861/misc/reaction.png "reaction")   
+No, look how it's slow (2g connection in the sahara desert)  
+![reaction](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_286/v1601534563/misc/Screenshot_2020-10-01_at_08.40.06.png "reaction")   
 
 
 Now, we know a that the we need DATA  
