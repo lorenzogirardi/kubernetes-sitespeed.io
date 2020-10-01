@@ -164,6 +164,33 @@ i fixed the issue.
 Well now Argo is running and you can interact with the web UI or creating a services and a ingress configuration or with the port forwarding.  
 Since i'm now experimenting the solution i'm just using the second option.  
 
+```
+$ kubectl -n argo port-forward deployment/argo-server 2746:2746
+Forwarding from 127.0.0.1:2746 -> 2746
+Forwarding from [::1]:2746 -> 2746
+```  
+
+The UI interface is pretty clean and the authentication model follow the RBAC policy   
+
+![argo_4](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601559087/misc/argo_4.png "argo_4")   
+
+The editor as well is really good and if i have to think about a solution to share to other teams/depts , this has a good level of abstraction (at least you need to know what is contab)  
+
+![argo_1](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601559087/misc/argo_1.png "argo_1")   
+
+All informations are shared with the most relevant needs   
+![argo_3](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601559088/misc/argo_3.png "argo_3")   
+
+Events could be retrieved and evaluated as well  
+![argo_6](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_640/v1601559087/misc/argo_6.png "argo_6")   
+
+Last but not least .... logs are in the UI
+![argo_5](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601559087/misc/argo_5.png "argo_5")   
+
+
+
+
+
 
 
 
