@@ -145,7 +145,27 @@ argo           argo-server-6c886c5b77-l8jfv               1/1     Running     1 
 argo           workflow-controller-65948977d-zc9vt        1/1     Running     0          2d14h
 ````
 
-As mentioned before i discover this bug , running a job ...   
+As mentioned before i discover a *bug* (just because i use containerd instead docker in microk8s) , running the firt job  
+```MountVolume.SetUp failed for volume "docker-lib" : hostPath type check failed: /var/lib/docker is not a directory```  
+However adding 
+
+```
+data:
+  config: |
+    containerRuntimeExecutor: pns
+```
+
+in ```workflow-controller-configmap```
+
+i fixed the issue.
+
+<br/><br/>
+
+Well now Argo is running and you can interact with the web UI or creating a services and a ingress configuration or with the port forwarding.  
+Since i'm now experimenting the solution i'm just using the second option.  
+
+
+
 
 
 
