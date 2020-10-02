@@ -17,5 +17,5 @@ spec:
     - name: sitespeedio
       container:
         image: sitespeedio/sitespeed.io:15.2.0
-        command: ["bash", "-c", "/start.sh --video=false --plugins.remove screenshot --plugins.remove html https://www.k8s.it/ -b chrome --speedIndex --browsertime.iterations 1 --browsertime.connectivity.engine tsproxy -c 3gfast --influxdb.host=192.168.1.28 --influxdb.database=sitespeedio"]
+        command: ["bash", "-c", "/start.sh --video=false --plugins.remove screenshot --plugins.remove html https://www.k8s.it/ -b chrome --speedIndex --browsertime.iterations 1 --browsertime.connectivity.engine tsproxy -c 3gfast --influxdb.host=$YOUR_INFLUXDB_HOST$ --influxdb.database=sitespeedio"]
 
