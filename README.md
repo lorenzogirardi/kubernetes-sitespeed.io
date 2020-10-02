@@ -12,6 +12,8 @@ How to read this ...
 
 So you can reach the GOAL just using docker and crontab for example
 <br/><br/>
+<br/><br/>
+
 ## Motivations 
 Well ... a website is a product itself,  
 it could be a Wordpress, a Magento ecommerce or a structured multiple applications that owns each ones a different section of the website.  
@@ -47,7 +49,14 @@ evaluate those during a long therm periode looking for performance
 
 First of all we have to test our websites on the customer position... so no 1gbit inline connection with 0.00001 roundtrip :) 
 
-From the multitude of products , webtest , lighthouse , selenium and so on i really like sitespeed.io
+From the multitude of products , webtest , lighthouse , selenium and so on i really like sitespeed.io  
+<br/><br/>
+
+### GOAL
+- be able to have an objective trend
+- check the goodness of releases
+
+<br/><br/>
 <br/><br/>
 
 ## The customer point of view  
@@ -84,9 +93,8 @@ https://www.sitespeed.io/documentation/sitespeed.io/connectivity/
 - 3gslow
 - cable
 
-I'd like to say that in 2020 *cable* and *3gfast* cover perfectly the wrost scenario
-
-
+I'd like to say that in 2020 *cable* and *3gfast* cover perfectly the wrost scenario  
+<br/><br/>
 <br/><br/>
 ## Sitespeed&#46;io
 
@@ -106,10 +114,8 @@ is know easy understand that you can extend in crontab this code and add some ot
 
 ```/usr/bin/docker run --privileged --shm-size=1g --rm --network=cable sitespeedio/sitespeed.io httos://www.example.com -v -b chrome --video --speedIndex -c cable --browsertime.iterations 1 --s3.key S3_KEY --s3.secret S3_SECRET --s3.bucketname S3_BUCKET --s3.removeLocalResult true --s3.path S3_PATH www.ecample.com --graphite.host GRAPHITE_HOST --graphite.port GRAPHITE_PORT --graphite.namespace GRAPHITE_PREFIX```
 
-
-
 <br/><br/>
-
+<br/><br/>
 
 ### Case of study  
 Since we have identified the tool i have to specify the use case  
@@ -188,20 +194,45 @@ Last but not least .... logs are in the UI
 ![argo_5](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601559087/misc/argo_5.png "argo_5")   
 
 
+<br/><br/>
+
+### Results
+We are now able to see the metrics in grafana...  
+
+you have 2 option , what is used in the  
+```001-argo-job-sitespeedio.yaml```  
+is the *influxdb* backend that could be rendered using  
+
+https://github.com/sitespeedio/grafana-bootstrap-docker/blob/main/dashboards/influxdb/pageSummary.json   
 
 
+LIVE VIEW https://services.k8s.it/grafana/d/000000053/pagesummary-influxdb?orgId=2&refresh=15m  
+
+![grafana_1](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601661244/misc/grafana_1.png "grafana_1")   
+
+![grafana_2](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601661243/misc/grafana_2.png "grafana_2")  
 
 
+However you can also use *graphite* backend with the same metrics (even more with provided dashboards)
 
 
+![graphite_1](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601661828/misc/graphite_1.png "graphite_1")
+
+![graphite_2](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601661828/misc/graphite_2.png "graphite_2")
+
+![graphite_3](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601661828/misc/graphite_3.png "graphite_3")
+
+![graphite_4](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_1080/v1601661829/misc/graphite_4.png "graphite_4")
 
 
+<br/><br/>
+<br/><br/>
 
+## WHAT'S NEXT
 
+Sitespeed is really good to have an high level view but also details that probably could save load time.  
 
-
-
-
+The introduction of Argo can orchestrate multiple checks on all pages/application you need to monitor without a specific crontab time for each job but considering a producer/consumer workflow.
 
 
 
