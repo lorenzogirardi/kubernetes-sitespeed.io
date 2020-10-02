@@ -3,14 +3,14 @@
 
 Hello  
 
-First of all this is a thought around a website metrics management, is not the only way, but is one way for a high level overview.
+First of all, this is a thought around a website metrics management, is not the only way, but is one way for a high level overview.
 
 How to read this ...  
  - i'm focused to share some concept about website monitoring
  - i'm sharing a possible way to manage in kubernetes  
  - i'm using some other tools in kubernetes just because i'm evaluating this for other purpose  
 
-So you can reach the GOAL just using docker and crontab for example
+However you can reach the GOAL just using docker and crontab for example
 <br/><br/>
 <br/><br/>
 
@@ -18,7 +18,7 @@ So you can reach the GOAL just using docker and crontab for example
 Well ... a website is a product itself,  
 it could be a Wordpress, a Magento ecommerce or a structured multiple applications that owns each ones a different section of the website.  
 
-However if you have a business on top you should move your evolution as a customer perspective
+However if running a business on top, you should move your evolution as a customer perspective:
 - how long does is take the website asnwer ?   
 - is the response time common for all sections ?
 - new versions/deployments are better than before for the customer ? 
@@ -38,10 +38,11 @@ There are also some others problems... when someone in your company or a custome
 
 No, look how it's slow (2g connection in the sahara desert)  
 ![reaction](https://res.cloudinary.com/ethzero/image/upload/c_scale,w_286/v1601534563/misc/Screenshot_2020-10-01_at_08.40.06.png "reaction")   
+<br/><br/>
 
 
-Now, we know a that the we need DATA  
-evaluate those during a long therm periode looking for performance
+Now, we know what we need ... DATA  
+Evaluate those during a long therm periode looking for performance
 - release by release
 - feature by feature
 - etc etc
@@ -67,22 +68,23 @@ If you own the product you know that the customer is "forced" to buy by you.
 Immgine to are Apple, you know that customers are affiliated to you... so if something is slow, probably even if the device is available in other websites the customer will wait the answer.  
 
 On the opposite side if you are a retailer , and the product is quite common 
-with no brandlove etc etc ... if the website is slow (we have to define that is slow) the user will change immediatly the website to land to somewhere else.
+with no brandlove etc etc ... if the website is slow the user will change immediatly the website to land to somewhere else.
+<br/><br/>
 
 ### Speed
 we usually define a *slowness* by a perception. 
 
 However , in 2020 you know the Data that comes from GA and understand when people leave a page , after some amount of time.
 
-Consider those rate and the timing to tune the threadshold 
+Consider those, rate and the timing to tune the threadshold 
 - Bounce 
 - Leave/Exit   
 
-and create the awareness about the limits and improvements you can achieve.
+and <ins>create the awareness</ins> about the limits and improvements you can achieve.
 
-Example. If a search take more than 10seconds, say *ciao ciao* to the customer
+Example. If a search take more than 10seconds, say *ciao ciao* to the customer.
 
-However when you mesure the speed you have to move yourself in the customer side ... so not all people has 1gbit connection , maybe the major are using mobile , maybe your host is in US and the customer in KR.  
+As said, when you mesure the speed you have to move yourself in the customer side ... so not all people has 1gbit connection , maybe the major are using mobile , maybe your host is in US and the customer in KR.  
 So ... internet connection should reflect the avg/wrost scenario
 Believe me that those data https://www.speedtest.net/global-index are quite optimistic :) i appreciate instead the documentation of sitespeed that has classified 4 networks
 
@@ -94,6 +96,8 @@ https://www.sitespeed.io/documentation/sitespeed.io/connectivity/
 - cable
 
 I'd like to say that in 2020 *cable* and *3gfast* cover perfectly the wrost scenario  
+
+Even if you don't agree with the speed category, remember to look the graphs and the metrics considering the DELTA
 <br/><br/>
 <br/><br/>
 ## Sitespeed&#46;io
